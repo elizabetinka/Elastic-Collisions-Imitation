@@ -22,7 +22,7 @@ class Model : public sf::Drawable, public sf::Transformable {
     sf::Font font;
     sf::Color color1 = sf::Color(255, 20, 147); //Deep Pink
     sf::Color color2 = sf::Color(123, 104, 238); //MediumSlateBlue
-    std::pair<float,float> _speed = std::pair<float,float>(-100,0);
+    std::pair<float,float> _speed = std::pair<float,float>(-5,0);
     int _mass1 = 100;
     int _mass2 = 1;
     sf::RectangleShape shape1 = sf::RectangleShape(sf::Vector2f((float)GetSquareSize(_mass1), (float)GetSquareSize(_mass1)));
@@ -92,7 +92,10 @@ public:
 
     int GetSquareSize(int mass) const {
         if (mass < 30){
-            return 30;
+            if (mass<10){
+                return 30;
+            }
+            return 35;
         }
         if (mass>=10000){
             return 300;

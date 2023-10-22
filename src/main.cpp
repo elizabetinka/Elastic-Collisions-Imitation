@@ -47,18 +47,18 @@ std::vector<sf::Text> initMarks(){
 
     res[m1Mark].setFont(font); //m1Mark
     res[m1Mark].setPosition(sf::Vector2f(LENGHT_SIZE-325,40));
-    res[m1Mark].setString("m1:");
+    res[m1Mark].setString("m2:");
     res[m1Mark].setFillColor(MediumSlateBlueColor);
 
     res[m2Mark].setFont(font); //m2Mark
     res[m2Mark].setPosition(sf::Vector2f(LENGHT_SIZE-325,90));
-    res[m2Mark].setString("m2:");
+    res[m2Mark].setString("m1:");
     res[m2Mark].setFillColor(MediumSlateBlueColor);
 
 
     res[vMark].setFont(font); //vMark
     res[vMark].setPosition(sf::Vector2f(LENGHT_SIZE-325,140));
-    res[vMark].setString("v:");
+    res[vMark].setString("v0:");
     res[vMark].setFillColor(MediumSlateBlueColor);
 
     res[CollisionsNumberMark].setFont(font); //CollisionsNumberMark
@@ -74,7 +74,7 @@ std::vector<sf::Text> initMarks(){
 
     res[vMark1].setFont(font);
     res[vMark1].setPosition(sf::Vector2f(135,40));
-    res[vMark1].setString("v1:");
+    res[vMark1].setString("v2:");
     res[vMark1].setFillColor(MediumSlateBlueColor);
 
     res[speed1].setFont(font);
@@ -84,7 +84,7 @@ std::vector<sf::Text> initMarks(){
 
     res[vMark2].setFont(font);
     res[vMark2].setPosition(sf::Vector2f(135,140));
-    res[vMark2].setString("v2:");
+    res[vMark2].setString("v1:");
     res[vMark2].setFillColor(MediumSlateBlueColor);
 
     res[speed2].setFont(font);
@@ -207,8 +207,10 @@ int main()
             model.Move();
         }
         Marks[CollisionsNumber].setString(std::to_string(model.GetCollisions()));
-        Marks[speed1].setString(std::to_string(abs(model.GetSpeed1())));
-        Marks[speed2].setString(std::to_string(abs(model.GetSpeed2())));
+        //Marks[speed1].setString(std::to_string(abs(model.GetSpeed1())));
+        Marks[speed1].setString(std::to_string(model.GetSpeed1()));
+        //Marks[speed2].setString(std::to_string(abs(model.GetSpeed2())));
+        Marks[speed2].setString(std::to_string(model.GetSpeed2()));
 
         window.clear(BG);
         window.draw(model);

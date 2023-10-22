@@ -32,6 +32,11 @@ void Model::Move()
         ++CollisionsCount;
         Collision();
     }
+    /*
+    else if (shape2.getPosition().x > LENGHT_SIZE && _speed.second <0){
+        shape2.setPosition(LENGHT_SIZE-_speed.second,shape2.getPosition().y);
+    }
+     */
     else if (shape2.getGlobalBounds().intersects(wallLeft.getGlobalBounds())){
         ++CollisionsCount;
         _speed.second = -_speed.second;
